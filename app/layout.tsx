@@ -4,6 +4,7 @@ import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { GlobalStyles } from "./globals";
 
 import "@mantine/core/styles.css";
+import StyledComponentsRegistry from "./lib/styled-components/registry";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -24,8 +25,10 @@ export default function RootLayout({
       </head>
       <body className={nunito.className}>
         <MantineProvider>
-          <GlobalStyles />
-          <main>{children}</main>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            <main>{children}</main>
+          </StyledComponentsRegistry>
         </MantineProvider>
       </body>
     </html>
