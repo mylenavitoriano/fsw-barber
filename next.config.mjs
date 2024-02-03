@@ -6,6 +6,11 @@ const nextConfig = {
     compiler: {
         styledComponents: true,
     },
+    images: {
+        remotePatterns: [{
+            hostname: 'utfs.io'
+        }]
+    }
 };
 
 export default nextConfig;

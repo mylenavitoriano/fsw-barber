@@ -4,9 +4,14 @@ import { ptBR } from 'date-fns/locale';
 import { Text } from "@mantine/core";
 import Search from './Components/Search';
 import BookingItem from '../components/BookingItem';
-import { ContainerElement } from './style';
+import { ContainerElement, ListBarbershops } from './style';
+import BarbershopItem from './Components/BarbershopItem';
 
-export default function Home() {
+import {db} from '../lib/prisma'
+
+export default async function Home() {
+  const barbershops = await db.barbershop.findMany({})
+
   return (
     <>
       <Header/>
@@ -18,8 +23,17 @@ export default function Home() {
         <Search />
 
         <ContainerElement>
-          <Text c="dimmed" size="sm" fw={700} className='titleBookings'>AGENDAMENTOS</Text>
+          <Text c="dimmed" size="sm" tt="capitalize" fw={700} className='title'>Agendamentos</Text>
           <BookingItem />
+        </ContainerElement>
+
+        <ContainerElement>
+          <Text c="dimmed" size="sm" tt="capitalize" fw={700} className='title'>Recomendados</Text>
+          <ListBarbershops>
+            {barbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </ListBarbershops>
         </ContainerElement>
       </div>
 
