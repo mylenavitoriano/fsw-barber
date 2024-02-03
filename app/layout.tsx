@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import { MantineProvider, ColorSchemeScript, MantineColorsTuple } from "@mantine/core";
 import { GlobalStyles } from "./globals";
 
 import "@mantine/core/styles.css";
 import StyledComponentsRegistry from "./lib/styled-components/registry";
+import { theme } from "@/theme/theme";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
         <ColorSchemeScript/>
       </head>
       <body className={nunito.className}>
-        <MantineProvider>
+        <MantineProvider defaultColorScheme="dark" theme={theme}>
           <StyledComponentsRegistry>
             <GlobalStyles />
             <main>{children}</main>

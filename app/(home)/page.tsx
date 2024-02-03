@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import { ptBR } from 'date-fns/locale';
 import { Text } from "@mantine/core";
 import Search from './Components/Search';
+import BookingItem from '../components/BookingItem';
+import { ContainerElement } from './style';
 
 export default function Home() {
   return (
@@ -14,6 +16,11 @@ export default function Home() {
         <Text size="sm">{format(new Date(), "EEEE',' dd 'de' MMMM", {locale: ptBR})}</Text>
 
         <Search />
+
+        <ContainerElement>
+          <Text c="dimmed" size="sm" fw={700} className='titleBookings'>AGENDAMENTOS</Text>
+          <BookingItem />
+        </ContainerElement>
       </div>
 
       

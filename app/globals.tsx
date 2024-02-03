@@ -33,6 +33,10 @@ const Globals = createGlobalStyle`
       padding: 1.5rem 1.875rem;
     }
   }
+
+  .mantine-Input-input{
+    color: var(--white)
+  }
 `
 
 export const GlobalStyles = () => {

@@ -1,15 +1,16 @@
 "use client"
 
 import { LuSearch } from "react-icons/lu";
-import { ButtonSearch, SearchContainer, InputSearch } from "./style";
+import { SearchContainer } from "./style";
+import { Button, Input } from "@mantine/core";
 
 const Search = () => {
     return (  
         <SearchContainer>
-            <InputSearch />
-            <ButtonSearch>
+            <Input radius="md" placeholder="Buscar"/>
+            <Button>
                 <LuSearch size={18}/>
-            </ButtonSearch>
+            </Button>
         </SearchContainer>
     );
 }
