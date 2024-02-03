@@ -6,6 +6,7 @@ import { GlobalStyles } from "./globals";
 import "@mantine/core/styles.css";
 import StyledComponentsRegistry from "./lib/styled-components/registry";
 import { theme } from "@/theme/theme";
+import Footer from "./components/Footer";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <StyledComponentsRegistry>
             <GlobalStyles />
             <main>{children}</main>
+            <Footer />
           </StyledComponentsRegistry>
         </MantineProvider>
       </body>

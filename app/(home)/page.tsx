@@ -23,12 +23,21 @@ export default async function Home() {
         <Search />
 
         <ContainerElement>
-          <Text c="dimmed" size="sm" tt="capitalize" fw={700} className='title'>Agendamentos</Text>
+          <Text c="dimmed" size="sm" tt="uppercase" fw={700} className='title'>Agendamentos</Text>
           <BookingItem />
         </ContainerElement>
 
         <ContainerElement>
-          <Text c="dimmed" size="sm" tt="capitalize" fw={700} className='title'>Recomendados</Text>
+          <Text c="dimmed" size="sm" tt="uppercase" fw={700} className='title'>Recomendados</Text>
+          <ListBarbershops>
+            {barbershops.map((barbershop) => (
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            ))}
+          </ListBarbershops>
+        </ContainerElement>
+
+        <ContainerElement>
+          <Text c="dimmed" size="sm" tt="uppercase" fw={700} className='title'>Populares</Text>
           <ListBarbershops>
             {barbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
